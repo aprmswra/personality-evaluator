@@ -149,8 +149,13 @@
                 </a>
                 <ul id="tables-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
                     <li>
-                        <a href="/personality">
-                        <i class="bi bi-circle"></i><span>Fill Profile Data</span>
+                        <a href="/profileCandidate">
+                        <i class="bi bi-circle"></i><span>Profile Candidate</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/personalityTest">
+                        <i class="bi bi-circle"></i><span>Test Personality</span>
                         </a>
                     </li>
                 </ul>
@@ -182,6 +187,8 @@
 
     <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
+    <script
+    src="https://code.jquery.com/jquery-3.6.4.min.js" integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" crossorigin="anonymous"></script>
     <!-- Vendor JS Files -->
     <script src="{{ asset('assets/vendor/apexcharts/apexcharts.min.js') }}"></script>
     <script src="{{ asset('assets/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
@@ -229,5 +236,8 @@
         })
         })
     </script>
+
+    @stack('js')
+
 </body>
 </html>
