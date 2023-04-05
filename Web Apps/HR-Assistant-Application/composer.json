@@ -7,14 +7,10 @@
     "require": {
         "php": "^8.0.2",
         "guzzlehttp/guzzle": "^7.5",
-        "jenssegers/mongodb": "^3.9",
-        "laravel/fortify": "^1.16",
+        "jenssegers/mongodb": "3.9.x",
         "laravel/framework": "^9.19",
         "laravel/sanctum": "^3.0",
-        "laravel/tinker": "^2.7",
-        "mongodb/mongodb": "^1.15",
-        "openai-php/laravel": "^0.4.0",
-        "orhanerday/open-ai": "^4.7"
+        "laravel/tinker": "^2.7"
     },
     "require-dev": {
         "fakerphp/faker": "^1.9.1",

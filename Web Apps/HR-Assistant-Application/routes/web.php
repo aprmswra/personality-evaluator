@@ -2,6 +2,9 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TestController;
+use App\Http\Controllers\EmployeeController;
+use App\Http\Controllers\CandidateController;
+use App\Http\Controllers\PersonalityController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,29 +17,29 @@ use App\Http\Controllers\TestController;
 |
 */
 
+// Home
 Route::get('/', function () {
     return view('test');
 });
 
+// Login
 Route::get('/login', function () {
     return view('pages.login.login');
 });
 
+// Register
 Route::get('/register', function () {
     return view('pages.login.register');
 });
 
-Route::get('/candidate', function () {
-    return view('pages.candidate.index');
-});
+// Candidate
+Route::get('/candidate', [CandidateController::class, 'index']);
 
-Route::get('/employee', function () {
-    return view('pages.employee.index');
-});
+// Employee
+Route::get('/employee', [EmployeeController::class, 'index']);
 
-Route::get('/personality', function () {
-    return view('pages.personality.index');
-});
+// Personality
+Route::get('/personality', [PersonalityController::class, 'index']);
 
 // Route::get('/test', [TestController::class, 'index']);
 Route::post('/chat', [TestController::class, 'index'])->name('chat');

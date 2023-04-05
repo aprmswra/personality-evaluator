@@ -1,4 +1,4 @@
-@include('layouts.layout')
+@extends('layouts.layout')
 
 @section('title', 'Personality Test')
 
@@ -17,7 +17,7 @@
 
 <section class="section">
     <div class="row">
-        <div class="col-lg-6">
+        <div class="col-lg-12">
 
             <div class="card">
                 <div class="card-body">
