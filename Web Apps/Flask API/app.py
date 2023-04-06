@@ -4,6 +4,7 @@ import joblib
 import pickle
 import config
 import time
+import json
 import pandas as pd
 from twitter_features import TweetFeatGenerator 
 from sklearn.feature_extraction.text import TfidfVectorizer
@@ -20,7 +21,8 @@ def summarize():
   # Kemampuan proaktif, berorientasi pada detail, dan cepat belajar adalah sifat terbesarnya yang membuatnya mampu beradaptasi dengan baik di lingkungan apa pun. 
   # """
 
-  data = request.form['text']
+  data = json.loads(request.data)
+  data = data['text']
 
   openai.api_key = config.OPENAI_API_KEY
   model = 'text-davinci-003'
@@ -47,8 +49,8 @@ def predict_tweets():
   }
   
   # start = time.time()
-
-  username = request.form['username']
+  data = json.loads(request.data)
+  username = data['username']
   
   # Load model
   model = joblib.load(f"../../PPT-09/models/{model_filename}.joblib")
@@ -62,7 +64,7 @@ def predict_tweets():
 
   # Assume form['test_result'] is a list
   # Ex: [3.75, 2.22, 3.56, 5.00, 6.0]
-  test_result = request.form['test_result'].split(",")
+  test_result = data['test_result'].split(",")
   test_result = [float(test) for test in test_result]
   reshape_df['test_result'] = test_result
   reshape_df['proba_tweet'] = reshape_df['proba_tweet'] * 10 # Normalization
