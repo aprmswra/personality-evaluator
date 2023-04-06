@@ -35,4 +35,11 @@ class TestController extends Controller
 
         // return view('chat', ['message' => $message]);
     }
+
+    public function testGet()
+    {
+        $response = Http::get('http://jsonplacehorder.typicode.com.posts');
+        $jsonData = $response ->json();
+        dd($jsonData);
+    }
 }
