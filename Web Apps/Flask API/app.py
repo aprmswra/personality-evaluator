@@ -46,17 +46,20 @@ def predict_tweets():
     4:'Conscientiousness'
   }
   
-  start = time.time()
+  # start = time.time()
 
   username = request.form['username']
   
   # Load model
-  model = joblib.load(f"../personality-evaluator/PPT-09/models/{model_filename}.joblib")
+  model = joblib.load(f"../../PPT-09/models/{model_filename}.joblib")
   
   # Get tweets result
   tfg = TweetFeatGenerator(username=username, model=model)
   reshape_df = tfg.inference_tweets()
   
+  if type(reshape_df) != pd.DataFrame:
+    return str(reshape_df)
+
   # Assume form['test_result'] is a list
   # Ex: [3.75, 2.22, 3.56, 5.00, 6.0]
   test_result = request.form['test_result'].split(",")
@@ -71,8 +74,8 @@ def predict_tweets():
 
   print(reshape_df)
 
-  end = time.time()
-  print(end - start)
+  # end = time.time()
+  # print(end - start)
   return {
     'label': d[result['class']],
     'soft_class': {
