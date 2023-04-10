@@ -42,6 +42,7 @@ Route::get('/employee', [EmployeeController::class, 'index']);
 Route::get('/profileCandidate', [PersonalityController::class, 'profileCandidate']);
 Route::get('/personalityTest', [PersonalityController::class, 'personalityTest']);
 Route::post('/predictPersonality', [PersonalityController::class, 'predictPersonalityTest']);
+Route::get('/summarizeCandidate', [PersonalityController::class, 'summarizeCandidate']);
 
 // Route::get('/test', [TestController::class, 'index']);
 Route::get('/test', [TestController::class, 'testGet'])->name('chat');

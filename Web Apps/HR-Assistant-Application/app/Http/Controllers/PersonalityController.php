@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use GuzzleHttp\Client;
+
 class PersonalityController extends Controller
 {
     /**
@@ -49,7 +51,7 @@ class PersonalityController extends Controller
         $Conscientiousness = [$request->q3, $request->q8];
         $Neuroticism = [$request->q4, $request->q9];
         $Openness = [$request->q5, $request->q10];
-        // $array = [$request->q1,$request->q2,$request->q3,$request->q4,$request->q5,$request->q6,$request->q7,$request->q8,$request->q9,$request->q10];
+        
         $extraLength = count($Extraversion);
         for ($i=0; $i < $extraLength; $i++) { 
             if ($Extraversion[$i] > 3) {
@@ -87,8 +89,50 @@ class PersonalityController extends Controller
         $finalNeuro = $NeuroValue/($neuroLength/10);
         $finalOpen = $OpenValue/($openLength/10);
 
-        $finalValue = [$finalExtra,$finalAgree,$finalConscient,$finalNeuro,$finalOpen];
-        dd($finalValue);
+        $username = 'farrelium';
+        // $finalValue = [$finalExtra,$finalAgree,$finalConscient,$finalNeuro,$finalOpen];
+        $finalValue = $finalExtra . ',' . $finalAgree . ',' . $finalConscient . ',' . $finalNeuro . ',' . $finalOpen;
+        // dd($finalValue);
+
+        $client = new Client([
+            'base_uri' => 'http://localhost:5000', // Ganti dengan URL Flask API
+            // 'timeout'  => 2.0,
+        ]);
+
+        $response = $client->get('/predict-tweets', [
+            'json' => [
+                'username' => $username,
+                'test_result' => $finalValue,
+            ]
+        ]);
+        
+        $data = $response->getBody()->getContents();
+
+        $data = json_decode($data, true);
+
+        dd($data);
+    }
+
+    public function summarizeCandidate()
+    {
+        $candidateDescription = 'Farrel merupakan fresh graduate dari Universitas Brawijaya jurusan Teknik Elektro yang fokus pada Control Engineering dan mendapatkan predikat Cumlaude dengan IPK 3.86/4.00. Ia memiliki ketertarikan terhadap perkembangan teknologi khususnya di bidang mikrokontroler, robotika, dan computer vision dengan harapan dapat bekerja di salah satu perusahaan yang bergerak di bidang industri teknologi. Semasa kuliah, Farrel aktif mengikuti kegiatan dan organisasi yang berkaitan dengan kontrol dan robotika. Ia menjabat sebagai programmer senior di Tim Robotika Brawijaya selama tiga tahun dan telah menorehkan beberapa prestasi. Selain itu, beliau aktif mengajarkan praktikum kepada mahasiswa sekaligus menjadi asisten laboratorium di dua laboratorium yang berbeda. Pengalaman kerja terakhirnya sebagai software engineer di perusahaan startup yang bergerak di industri teknologi kesehatan dengan tanggung jawab mengelola aplikasi web yang berfungsi sebagai rekam medis pasien berbasis elektronik. Kemampuan proaktif, berorientasi pada detail, dan cepat belajar adalah sifat terbesarnya yang membuatnya mampu beradaptasi dengan baik di lingkungan apa pun.';
+
+        $client = new Client([
+            'base_uri' => 'http://localhost:5000', // Ganti dengan URL Flask API
+            // 'timeout'  => 2.0,
+        ]);
+
+        $response = $client->get('/summ', [
+            'json' => [
+                'text' => $candidateDescription,
+            ]
+        ]);
+        
+        $data = $response->getBody()->getContents();
+
+        // $data = json_decode($data, true);
+
+        dd($data);
     }
 
     /**
