@@ -36,7 +36,7 @@ def summarize():
 
   result = response['choices'][0]['text']
   print(result)
-  return result
+  return {'summary': result}
 
 @app.route('/predict-tweets', methods=['GET'])
 def predict_tweets():

@@ -130,9 +130,10 @@ class PersonalityController extends Controller
         
         $data = $response->getBody()->getContents();
 
-        // $data = json_decode($data, true);
+        $data = json_decode($data, true);
 
         dd($data);
+        // dd($data['summary']);
     }
 
     /**
