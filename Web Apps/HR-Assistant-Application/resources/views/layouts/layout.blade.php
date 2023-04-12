@@ -32,6 +32,7 @@
 
     <!-- Styles -->
     <link href="{{ asset('assets/css/style.css') }}" rel="stylesheet">
+    <link href="{{ asset('assets/css/button-test.css') }}" rel="stylesheet">
 
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 </head>
@@ -201,6 +202,7 @@
 
     <!-- Template Main JS File -->
     <script src="{{ asset('assets/js/main.js') }}"></script>
+    <script src="{{ asset('assets/js/button-test.js') }}"></script>
 
     <script src="{{asset('assets/js/sweet-alert/sweetalert2.all.min.js')}}"></script>
 

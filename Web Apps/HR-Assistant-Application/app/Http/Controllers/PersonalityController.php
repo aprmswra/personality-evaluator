@@ -46,11 +46,11 @@ class PersonalityController extends Controller
         $ConscientValue = 0;
         $NeuroValue = 0;
         $OpenValue = 0;
-        $Extraversion = [$request->q1, $request->q6];
-        $Agreeableness = [$request->q2, $request->q7];
-        $Conscientiousness = [$request->q3, $request->q8];
-        $Neuroticism = [$request->q4, $request->q9];
-        $Openness = [$request->q5, $request->q10];
+        $Extraversion = [$request->q1, $request->q6, $request->q11, $request->q16, $request->q21, $request->q26, $request->q31, $request->q36];
+        $Agreeableness = [$request->q2, $request->q7, $request->q12, $request->q17, $request->q22, $request->q27, $request->q32, $request->q37, $request->q42];
+        $Conscientiousness = [$request->q3, $request->q8, $request->q13, $request->q18, $request->q23, $request->q28, $request->q33, $request->q38, $request->q43];
+        $Neuroticism = [$request->q4, $request->q9, $request->q14, $request->q19, $request->q24, $request->q29, $request->q34, $request->q39];
+        $Openness = [$request->q5, $request->q10, $request->q15, $request->q20, $request->q25, $request->q30, $request->q35, $request->q40, $request->q41, $request->q44];
         
         $extraLength = count($Extraversion);
         for ($i=0; $i < $extraLength; $i++) { 
