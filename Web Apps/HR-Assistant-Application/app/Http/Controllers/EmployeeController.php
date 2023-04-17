@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use App\Models\Employee;
+
 class EmployeeController extends Controller
 {
     /**
@@ -13,7 +15,11 @@ class EmployeeController extends Controller
      */
     public function index()
     {
-        return view('pages.employee.index');
+        $data['employee'] = Employee::get();
+        
+        // dd($data);
+
+        return view('pages.employee.index', $data);
     }
 
     /**
@@ -34,7 +40,25 @@ class EmployeeController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $first_name = 'Haikal';
+        $last_name = 'Limansah';
+        $gender = 'Laki-laki';
+        $address = 'Kuningan';
+        $date_of_birth = '09-09-1999';
+        $no_hp = '081223334444';
+        $position = 'HRD';
+        
+        $employee = Employee::create([
+            'first_name' => $first_name,
+            'last_name' => $last_name,
+            'gender' => $gender,
+            'address' => $address,
+            'date_of_birth' => $date_of_birth,
+            'no_hp' => $no_hp,
+            'position' => $position
+        ]);
+
+        dd($employee);
     }
 
     /**

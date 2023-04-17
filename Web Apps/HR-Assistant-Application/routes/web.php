@@ -34,9 +34,11 @@ Route::get('/register', function () {
 
 // Candidate
 Route::get('/candidate', [CandidateController::class, 'index']);
+Route::post('/addCandidate', [CandidateController::class, 'store']);
 
 // Employee
 Route::get('/employee', [EmployeeController::class, 'index']);
+Route::post('/addEmployee', [EmployeeController::class, 'store']);
 
 // Personality
 Route::get('/profileCandidate', [PersonalityController::class, 'profileCandidate']);

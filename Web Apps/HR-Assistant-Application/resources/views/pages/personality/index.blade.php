@@ -24,52 +24,69 @@
                     <h5 class="card-title">Profile Candidate</h5>
 
                     <!-- General Form Elements -->
-                    <form>
+                    <form action="addCandidate" method="POST">
+                        @csrf
                         <div class="row mb-3">
-                            <label for="inputText" class="col-sm-2 col-form-label">Name</label>
+                            <label for="first_name" class="col-sm-2 col-form-label">First Name</label>
                             <div class="col-sm-10">
-                            <input type="text" class="form-control">
+                            <input id="first_name" name="first_name" type="text" class="form-control">
                             </div>
                         </div>
                         <div class="row mb-3">
-                            <label for="inputEmail" class="col-sm-2 col-form-label">Email</label>
+                            <label for="last_name" class="col-sm-2 col-form-label">Last Name</label>
                             <div class="col-sm-10">
-                            <input type="text" class="form-control">
+                            <input id="last_name" name="last_name" type="text" class="form-control">
                             </div>
                         </div>
                         <div class="row mb-3">
-                            <label for="inputNumber" class="col-sm-2 col-form-label">Phone Number</label>
+                            <label for="gender" class="col-sm-2 col-form-label">Gender</label>
                             <div class="col-sm-10">
-                            <input type="number" class="form-control">
-                            </div>
-                        </div>
-                        <div class="row mb-3">
-                            <label for="inputNumber" class="col-sm-2 col-form-label">CV</label>
-                            <div class="col-sm-10">
-                            <input class="form-control" type="file" id="formFile">
-                            </div>
-                        </div>
-                        <div class="row mb-3">
-                            <label for="inputDate" class="col-sm-2 col-form-label">Birth of Date</label>
-                            <div class="col-sm-10">
-                            <input type="date" class="form-control">
-                            </div>
-                        </div>
-                        <div class="row mb-3">
-                            <label for="inputPassword" class="col-sm-2 col-form-label">Tell me about yourself</label>
-                            <div class="col-sm-10">
-                            <textarea class="form-control" style="height: 100px"></textarea>
-                            </div>
-                        </div>
-                        
-                        <div class="row mb-3">
-                            <label class="col-sm-2 col-form-label">Gender</label>
-                            <div class="col-sm-10">
-                            <select class="form-select" aria-label="Default select example">
-                                <option selected>Open this select menu</option>
+                            <select id="gender" name="gender" class="form-select" aria-label="Default select example">
+                                <option selected>Choose Your Gender</option>
                                 <option value="M">Male</option>
                                 <option value="F">Female</option>
                             </select>
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <label for="date_of_birth" class="col-sm-2 col-form-label">Date of Birth</label>
+                            <div class="col-sm-10">
+                            <input id="date_of_birth" name="date_of_birth" type="date" class="form-control">
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <label for="no_hp" class="col-sm-2 col-form-label">Phone Number</label>
+                            <div class="col-sm-10">
+                            <input id="no_hp" name="no_hp" type="number" class="form-control">
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <label for="address" class="col-sm-2 col-form-label">Address</label>
+                            <div class="col-sm-10">
+                            <textarea id="address" name="address" class="form-control" style="height: 100px"></textarea>
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <label for="position" class="col-sm-2 col-form-label">Position</label>
+                            <div class="col-sm-10">
+                                <select id="position" name="position" class="form-select" aria-label="Default select example">
+                                    <option selected>Choose Your Position</option>
+                                    <option value="Data Analyst">Data Analyst</option>
+                                    <option value="Data Engineer">Data Engineer</option>
+                                    <option value="Data Scientist">Data Scientist</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <label for="tell_me_yourself" class="col-sm-2 col-form-label">Tell me about yourself</label>
+                            <div class="col-sm-10">
+                            <textarea id="tell_me_yourself" name="tell_me_yourself" class="form-control" style="height: 100px"></textarea>
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <label for="cv" class="col-sm-2 col-form-label">CV</label>
+                            <div class="col-sm-10">
+                            <input id="cv" name="cv" class="form-control" type="file" id="formFile">
                             </div>
                         </div>
 

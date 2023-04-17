@@ -29,145 +29,27 @@
                             <tr>
                                 <th scope="col">#</th>
                                 <th scope="col">Name</th>
-                                <th scope="col">Apply Date</th>
+                                <th scope="col">Date of Birth</th>
                                 <th scope="col">Position</th>
                                 <th scope="col">Status</th>
                                 <th scope="col">Action</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <th scope="row">1</th>
-                                <td>Brandon Jacob</td>
-                                <td>2016-05-25</td>
-                                <td>Designer</td>
-                                <td>Accepted</td>
-                                <td>
-                                    <button class="btn btn-sm btn-primary" title="Detail" data-toggle="modal" data-target="#"><i class="bi bi-eye"></i></button>
-                                    <button class="btn btn-sm btn-warning" title="Edit" data-toggle="modal" data-target="#"><i class="bi bi-pencil-square"></i></button>
-                                    <a href="#" class="btn btn-sm btn-danger hapusData" title="Hapus"><i class="bi bi-trash"></i></a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <th scope="row">2</th>
-                                <td>Bridie Kessler</td>
-                                <td>2014-12-05</td>
-                                <td>Developer</td>
-                                <td>In Review</td>
-                                <td>
-                                    <button class="btn btn-sm btn-primary" title="Detail" data-toggle="modal" data-target="#"><i class="bi bi-eye"></i></button>
-                                    <button class="btn btn-sm btn-warning" title="Edit" data-toggle="modal" data-target="#"><i class="bi bi-pencil-square"></i></button>
-                                    <a href="#" class="btn btn-sm btn-danger hapusData" title="Hapus"><i class="bi bi-trash"></i></a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <th scope="row">3</th>
-                                <td>Ashleigh Langosh</td>
-                                <td>2011-08-12</td>
-                                <td>Finance</td>
-                                <td>Accepted</td>
-                                <td>
-                                    <button class="btn btn-sm btn-primary" title="Detail" data-toggle="modal" data-target="#"><i class="bi bi-eye"></i></button>
-                                    <button class="btn btn-sm btn-warning" title="Edit" data-toggle="modal" data-target="#"><i class="bi bi-pencil-square"></i></button>
-                                    <a href="#" class="btn btn-sm btn-danger hapusData" title="Hapus"><i class="bi bi-trash"></i></a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <th scope="row">4</th>
-                                <td>Angus Grady</td>
-                                <td>2012-06-11</td>
-                                <td>HR</td>
-                                <td>Rejected</td>
-                                <td>
-                                    <button class="btn btn-sm btn-primary" title="Detail" data-toggle="modal" data-target="#"><i class="bi bi-eye"></i></button>
-                                    <button class="btn btn-sm btn-warning" title="Edit" data-toggle="modal" data-target="#"><i class="bi bi-pencil-square"></i></button>
-                                    <a href="#" class="btn btn-sm btn-danger hapusData" title="Hapus"><i class="bi bi-trash"></i></a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <th scope="row">5</th>
-                                <td>Raheem Lehner</td>
-                                <td>2011-04-19</td>
-                                <td>Dynamic Division Officer</td>
-                                <td>Accepted</td>
-                                <td>
-                                    <button class="btn btn-sm btn-primary" title="Detail" data-toggle="modal" data-target="#"><i class="bi bi-eye"></i></button>
-                                    <button class="btn btn-sm btn-warning" title="Edit" data-toggle="modal" data-target="#"><i class="bi bi-pencil-square"></i></button>
-                                    <a href="#" class="btn btn-sm btn-danger hapusData" title="Hapus"><i class="bi bi-trash"></i></a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <th scope="row">6</th>
-                                <td>Raheem Lehner</td>
-                                <td>2011-04-19</td>
-                                <td>Dynamic Division Officer</td>
-                                <td>Rejected</td>
-                                <td>
-                                    <button class="btn btn-sm btn-primary" title="Detail" data-toggle="modal" data-target="#"><i class="bi bi-eye"></i></button>
-                                    <button class="btn btn-sm btn-warning" title="Edit" data-toggle="modal" data-target="#"><i class="bi bi-pencil-square"></i></button>
-                                    <a href="#" class="btn btn-sm btn-danger hapusData" title="Hapus"><i class="bi bi-trash"></i></a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <th scope="row">7</th>
-                                <td>Raheem Lehner</td>
-                                <td>2011-04-19</td>
-                                <td>Dynamic Division Officer</td>
-                                <td>Rejected</td>
-                                <td>
-                                    <button class="btn btn-sm btn-primary" title="Detail" data-toggle="modal" data-target="#"><i class="bi bi-eye"></i></button>
-                                    <button class="btn btn-sm btn-warning" title="Edit" data-toggle="modal" data-target="#"><i class="bi bi-pencil-square"></i></button>
-                                    <a href="#" class="btn btn-sm btn-danger hapusData" title="Hapus"><i class="bi bi-trash"></i></a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <th scope="row">8</th>
-                                <td>Raheem Lehner</td>
-                                <td>2011-04-19</td>
-                                <td>Dynamic Division Officer</td>
-                                <td>In Review</td>
-                                <td>
-                                    <button class="btn btn-sm btn-primary" title="Detail" data-toggle="modal" data-target="#"><i class="bi bi-eye"></i></button>
-                                    <button class="btn btn-sm btn-warning" title="Edit" data-toggle="modal" data-target="#"><i class="bi bi-pencil-square"></i></button>
-                                    <a href="#" class="btn btn-sm btn-danger hapusData" title="Hapus"><i class="bi bi-trash"></i></a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <th scope="row">9</th>
-                                <td>Raheem Lehner</td>
-                                <td>2011-04-19</td>
-                                <td>Dynamic Division Officer</td>
-                                <td>Rejected</td>
-                                <td>
-                                    <button class="btn btn-sm btn-primary" title="Detail" data-toggle="modal" data-target="#"><i class="bi bi-eye"></i></button>
-                                    <button class="btn btn-sm btn-warning" title="Edit" data-toggle="modal" data-target="#"><i class="bi bi-pencil-square"></i></button>
-                                    <a href="#" class="btn btn-sm btn-danger hapusData" title="Hapus"><i class="bi bi-trash"></i></a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <th scope="row">10</th>
-                                <td>Raheem Lehner</td>
-                                <td>2011-04-19</td>
-                                <td>Dynamic Division Officer</td>
-                                <td>Rejected</td>
-                                <td>
-                                    <button class="btn btn-sm btn-primary" title="Detail" data-toggle="modal" data-target="#"><i class="bi bi-eye"></i></button>
-                                    <button class="btn btn-sm btn-warning" title="Edit" data-toggle="modal" data-target="#"><i class="bi bi-pencil-square"></i></button>
-                                    <a href="#" class="btn btn-sm btn-danger hapusData" title="Hapus"><i class="bi bi-trash"></i></a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <th scope="row">11</th>
-                                <td>Raheem Lehner</td>
-                                <td>2011-04-19</td>
-                                <td>Dynamic Division Officer</td>
-                                <td>In Review</td>
-                                <td>
-                                    <button class="btn btn-sm btn-primary" title="Detail" data-toggle="modal" data-target="#"><i class="bi bi-eye"></i></button>
-                                    <button class="btn btn-sm btn-warning" title="Edit" data-toggle="modal" data-target="#"><i class="bi bi-pencil-square"></i></button>
-                                    <a href="#" class="btn btn-sm btn-danger hapusData" title="Hapus"><i class="bi bi-trash"></i></a>
-                                </td>
-                            </tr>
+                            @foreach ($candidate as $candidates)
+                                <tr>
+                                    <td align="center">{{$loop->iteration}}</td>
+                                    <td>{{$candidates->first_name}} {{$candidates->last_name}}</td>
+                                    <td>{{$candidates->date_of_birth}}</td>
+                                    <td>{{$candidates->position}}</td>
+                                    <td>Pending</td>
+                                    <td align="center">
+                                        <button class="btn btn-sm btn-primary" title="Detail" data-toggle="modal" data-target="#detailData{{$candidates['id']}}"><i class="bi bi-eye"></i></button>
+                                        <button class="btn btn-sm btn-warning" title="Edit" data-toggle="modal" data-target="#editData{{$candidates['id']}}"><i class="bi bi-pencil-square"></i></button>
+                                        <a href="{{$candidates->id}}/deleteCandidate" class="btn btn-sm btn-danger hapusData" title="Hapus"><i class="bi bi-trash"></i></a>
+                                    </td>
+                                </tr>
+                            @endforeach
                         </tbody>
                     </table>
                     <!-- End Table with stripped rows -->

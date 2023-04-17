@@ -30,66 +30,24 @@
                                 <th scope="col">#</th>
                                 <th scope="col">Name</th>
                                 <th scope="col">Position</th>
-                                <th scope="col">E-mail</th>
+                                <th scope="col">Address</th>
                                 <th scope="col">Action</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <th scope="row">1</th>
-                                <td>Brandon Jacob</td>
-                                <td>Human Resource</td>
-                                <td>brandon@xxx.xxx</td>
-                                <td>
-                                    <button class="btn btn-sm btn-primary" title="Detail" data-toggle="modal" data-target="#"><i class="bi bi-eye"></i></button>
-                                    <button class="btn btn-sm btn-warning" title="Edit" data-toggle="modal" data-target="#"><i class="bi bi-pencil-square"></i></button>
-                                    <a href="#" class="btn btn-sm btn-danger hapusData" title="Hapus"><i class="bi bi-trash"></i></a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <th scope="row">2</th>
-                                <td>Bridie Kessler</td>
-                                <td>Human Capital</td>
-                                <td>bridie@xxx.xxx</td>
-                                <td>
-                                    <button class="btn btn-sm btn-primary" title="Detail" data-toggle="modal" data-target="#"><i class="bi bi-eye"></i></button>
-                                    <button class="btn btn-sm btn-warning" title="Edit" data-toggle="modal" data-target="#"><i class="bi bi-pencil-square"></i></button>
-                                    <a href="#" class="btn btn-sm btn-danger hapusData" title="Hapus"><i class="bi bi-trash"></i></a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <th scope="row">3</th>
-                                <td>Ashleigh Langosh</td>
-                                <td>Human Capital</td>
-                                <td>ashleigh@xxx.xxx</td>
-                                <td>
-                                    <button class="btn btn-sm btn-primary" title="Detail" data-toggle="modal" data-target="#"><i class="bi bi-eye"></i></button>
-                                    <button class="btn btn-sm btn-warning" title="Edit" data-toggle="modal" data-target="#"><i class="bi bi-pencil-square"></i></button>
-                                    <a href="#" class="btn btn-sm btn-danger hapusData" title="Hapus"><i class="bi bi-trash"></i></a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <th scope="row">4</th>
-                                <td>Angus Grady</td>
-                                <td>Human Resource</td>
-                                <td>angus@xxx.xxx</td>
-                                <td>
-                                    <button class="btn btn-sm btn-primary" title="Detail" data-toggle="modal" data-target="#"><i class="bi bi-eye"></i></button>
-                                    <button class="btn btn-sm btn-warning" title="Edit" data-toggle="modal" data-target="#"><i class="bi bi-pencil-square"></i></button>
-                                    <a href="#" class="btn btn-sm btn-danger hapusData" title="Hapus"><i class="bi bi-trash"></i></a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <th scope="row">5</th>
-                                <td>Raheem Lehner</td>
-                                <td>Human Capital</td>
-                                <td>raheem@xxx.xxx</td>
-                                <td>
-                                    <button class="btn btn-sm btn-primary" title="Detail" data-toggle="modal" data-target="#"><i class="bi bi-eye"></i></button>
-                                    <button class="btn btn-sm btn-warning" title="Edit" data-toggle="modal" data-target="#"><i class="bi bi-pencil-square"></i></button>
-                                    <a href="#" class="btn btn-sm btn-danger hapusData" title="Hapus"><i class="bi bi-trash"></i></a>
-                                </td>
-                            </tr>
+                            @foreach ($employee as $employees)
+                                <tr>
+                                    <td align="center">{{$loop->iteration}}</td>
+                                    <td>{{$employees->first_name}} {{$employees->last_name}}</td>
+                                    <td>{{$employees->position}}</td>
+                                    <td>{{$employees->address}}</td>
+                                    <td align="center">
+                                        <button class="btn btn-sm btn-primary" title="Detail" data-toggle="modal" data-target="#detailData{{$employees['id']}}"><i class="bi bi-eye"></i></button>
+                                        <button class="btn btn-sm btn-warning" title="Edit" data-toggle="modal" data-target="#editData{{$employees['id']}}"><i class="bi bi-pencil-square"></i></button>
+                                        <a href="{{$employees->id}}/deleteEmployee" class="btn btn-sm btn-danger hapusData" title="Hapus"><i class="bi bi-trash"></i></a>
+                                    </td>
+                                </tr>
+                            @endforeach
                         </tbody>
                     </table>
                     <!-- End Table with stripped rows -->
