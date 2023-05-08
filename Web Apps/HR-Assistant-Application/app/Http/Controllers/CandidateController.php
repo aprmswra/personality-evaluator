@@ -75,6 +75,16 @@ class CandidateController extends Controller
         $userCandidate = User::find($request->user_id);
 
         // dd($userCandidate);
+
+        // Menyimpan Data File kedalam Variabel
+        $file = $request->file('cv');
+        $filename = time()."_".$file->getClientOriginalName();
+        $filext = $file->getClientOriginalExtension();
+        $filesize = $file->getSize();
+
+        // Menentukan Storage Materi Pendampingan
+        $path = 'storage';
+        $file->move($path, $filename);
         
         $candidate = Candidate::create([
             'first_name' => $request->first_name,
@@ -84,6 +94,7 @@ class CandidateController extends Controller
             'date_of_birth' => $request->date_of_birth,
             'no_hp' => $request->no_hp,
             'position' => $request->position,
+            'cv' => $filename,
             'status' => 'review',
             'tell_me_yourself' => $data['summary'],
             'test_score_a' => '-',
@@ -163,8 +174,12 @@ class CandidateController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function getFile($id)
     {
-        //
+        $file = Candidate::find($id);
+
+        $pathFile = storage_path('../public/storage/' . $file->cv);
+
+        return response()->download($pathFile);
     }
 }

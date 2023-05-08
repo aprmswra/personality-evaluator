@@ -67,6 +67,10 @@
                                 <div class="col-sm-9">
                                     <p>: {{$candidate->tell_me_yourself}}</p>
                                 </div>
+                                <p class=" col-sm-3 font-weight-bold">File CV</p>
+                                <div class="col-sm-9">
+                                    <a href="/getfile/{{$candidate->id}}">: {{$candidate->cv}}</a>
+                                </div>
                             </div>
                         </div>
                     </div>

@@ -24,7 +24,7 @@
                     <h5 class="card-title">Profile Candidate</h5>
 
                     <!-- General Form Elements -->
-                    <form action="addCandidate" method="POST">
+                    <form action="addCandidate" method="POST" enctype="multipart/form-data" class="needs-validation" novalidate>
                         @csrf
                         <input type="hidden" class="form-control" id="user_id" name="user_id" value="{{ auth()->user()->id }}">
                         <div class="row mb-3">
@@ -87,7 +87,7 @@
                         <div class="row mb-3">
                             <label for="cv" class="col-sm-2 col-form-label">CV</label>
                             <div class="col-sm-10">
-                            <input id="cv" name="cv" class="form-control" type="file" id="formFile">
+                            <input id="cv" name="cv" class="form-control" type="file" id="cv">
                             </div>
                         </div>
 

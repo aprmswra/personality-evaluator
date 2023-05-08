@@ -43,6 +43,7 @@ Route::post('/addCandidate', [CandidateController::class, 'store'])->middleware(
 Route::get('{id}/detailCandidate', [CandidateController::class, 'show'])->middleware('auth');
 Route::get('/rejectRegister/{id}', [CandidateController::class, 'rejectCandidate'])->middleware('auth');
 Route::get('/acceptCandidate/{id}', [CandidateController::class, 'acceptCandidate'])->middleware('auth');
+Route::get('/getfile/{id}', [CandidateController::class, 'getFile'])->middleware('auth');
 
 // Employee
 Route::get('/employee', [EmployeeController::class, 'index'])->middleware('auth');

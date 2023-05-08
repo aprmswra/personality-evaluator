@@ -23,6 +23,7 @@ class Candidate extends Eloquent
         'date_of_birth',
         'no_hp',
         'position',
+        'cv',
         'status',
         'tell_me_yourself',
         'test_score_a',

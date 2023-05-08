@@ -24,6 +24,7 @@ return new class extends Migration
             $collection->date('date_of_birth');
             $collection->string('no_hp');
             $collection->string('position');
+            $collection->string('cv');
             $collection->enum('status', ['review','accepted','rejected'])->default('review');
             $collection->string('tell_me_yourself');
             $collection->string('test_score_a');
