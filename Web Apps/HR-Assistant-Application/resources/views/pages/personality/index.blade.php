@@ -26,6 +26,7 @@
                     <!-- General Form Elements -->
                     <form action="addCandidate" method="POST">
                         @csrf
+                        <input type="hidden" class="form-control" id="user_id" name="user_id" value="{{ auth()->user()->id }}">
                         <div class="row mb-3">
                             <label for="first_name" class="col-sm-2 col-form-label">First Name</label>
                             <div class="col-sm-10">

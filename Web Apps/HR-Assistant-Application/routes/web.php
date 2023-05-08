@@ -1,10 +1,11 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\TestController;
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\EmployeeController;
 use App\Http\Controllers\CandidateController;
 use App\Http\Controllers\PersonalityController;
+use App\Http\Controllers\AuthController;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,14 +19,17 @@ use App\Http\Controllers\PersonalityController;
 */
 
 // Home
-Route::get('/', function () {
-    return view('test');
-});
+// Route::get('/', function () {
+//     return view('dashboard');
+// });
+Route::get('/', [DashboardController::class, 'index'])->middleware('auth');
 
 // Login
 Route::get('/login', function () {
     return view('pages.login.login');
-});
+})->name('login');
+Route::post('/postLogin', [AuthController::class, 'login']);
+Route::get('/logout', [AuthController::class, 'logout']);
 
 // Register
 Route::get('/register', function () {
@@ -33,18 +37,17 @@ Route::get('/register', function () {
 });
 
 // Candidate
-Route::get('/candidate', [CandidateController::class, 'index']);
-Route::post('/addCandidate', [CandidateController::class, 'store']);
+Route::get('/candidate', [CandidateController::class, 'index'])->middleware('auth');
+Route::post('/addCandidate', [CandidateController::class, 'store'])->middleware('auth');
+Route::get('{id}/detailCandidate', [CandidateController::class, 'show'])->middleware('auth');
 
 // Employee
-Route::get('/employee', [EmployeeController::class, 'index']);
-Route::post('/addEmployee', [EmployeeController::class, 'store']);
+Route::get('/employee', [EmployeeController::class, 'index'])->middleware('auth');
+Route::post('/addEmployee', [EmployeeController::class, 'store'])->middleware('auth');
 
 // Personality
-Route::get('/profileCandidate', [PersonalityController::class, 'profileCandidate']);
-Route::get('/personalityTest', [PersonalityController::class, 'personalityTest']);
-Route::post('/predictPersonality', [PersonalityController::class, 'predictPersonalityTest']);
-Route::get('/summarizeCandidate', [PersonalityController::class, 'summarizeCandidate']);
+Route::get('/profileCandidate', [PersonalityController::class, 'profileCandidate'])->middleware('auth');
+Route::get('/personalityTest', [PersonalityController::class, 'personalityTest'])->middleware('auth');
+Route::post('/predictPersonality', [PersonalityController::class, 'predictPersonalityTest'])->middleware('auth');
+Route::get('/summarizeCandidate', [PersonalityController::class, 'summarizeCandidate'])->middleware('auth');
 
-// Route::get('/test', [TestController::class, 'index']);
-Route::get('/test', [TestController::class, 'testGet'])->name('chat');

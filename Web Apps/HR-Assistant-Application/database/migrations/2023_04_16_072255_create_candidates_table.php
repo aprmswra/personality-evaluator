@@ -3,9 +3,11 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use Illuminate\Foundation\Testing\DatabaseMigrations;
 
 return new class extends Migration
 {
+    use DatabaseMigrations;
     /**
      * Run the migrations.
      *
@@ -22,10 +24,18 @@ return new class extends Migration
             $collection->date('date_of_birth');
             $collection->string('no_hp');
             $collection->string('position');
-            $collection->enum('status', ['pending','review','accepted'])->default('pending');
+            $collection->enum('status', ['review','accepted','rejected'])->default('review');
             $collection->string('tell_me_yourself');
-            $collection->string('test_score');
-            $collection->string('test_result');
+            $collection->string('test_score_a');
+            $collection->string('test_score_c');
+            $collection->string('test_score_e');
+            $collection->string('test_score_n');
+            $collection->string('test_score_o');
+            $collection->string('test_result_a');
+            $collection->string('test_result_c');
+            $collection->string('test_result_e');
+            $collection->string('test_result_n');
+            $collection->string('test_result_o');
             $collection->string('personality');
             $collection->timestamps();
         });

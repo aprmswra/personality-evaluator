@@ -14,8 +14,9 @@ return [
     */
 
     'defaults' => [
-        'guard' => 'web',
+        'guard' => 'mongodb',
         'passwords' => 'users',
+        // 'provider' => 'mongodb',
     ],
 
     /*
@@ -37,6 +38,16 @@ return [
 
     'guards' => [
         'web' => [
+            'driver' => 'session',
+            'provider' => 'users',
+        ],
+    
+        'api' => [
+            'driver' => 'token',
+            'provider' => 'users',
+        ],
+    
+        'mongodb' => [
             'driver' => 'session',
             'provider' => 'users',
         ],
@@ -62,6 +73,11 @@ return [
     'providers' => [
         'users' => [
             'driver' => 'eloquent',
+            'model' => App\Models\User::class,
+        ],
+
+        'mongo_users' => [
+            'driver' => 'eloquent_mongo',
             'model' => App\Models\User::class,
         ],
 

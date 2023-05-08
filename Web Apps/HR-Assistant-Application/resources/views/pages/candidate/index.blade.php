@@ -42,11 +42,23 @@
                                     <td>{{$candidates->first_name}} {{$candidates->last_name}}</td>
                                     <td>{{$candidates->date_of_birth}}</td>
                                     <td>{{$candidates->position}}</td>
-                                    <td>Pending</td>
+                                    <td>
+                                        @if ($candidates->status == 'review')
+                                            Pending
+                                        @elseif ($candidates->status == 'accepted')
+                                            Accepted
+                                        @elseif ($candidates->status == 'rejected')
+                                            Rejected
+                                        @endif
+                                    </td>
                                     <td align="center">
-                                        <button class="btn btn-sm btn-primary" title="Detail" data-toggle="modal" data-target="#detailData{{$candidates['id']}}"><i class="bi bi-eye"></i></button>
+                                        {{-- <button class="btn btn-sm btn-primary" title="Detail" data-toggle="modal" data-target="#detailData{{$candidates['id']}}"><i class="bi bi-eye"></i></button> --}}
+                                        {{-- <a href="{{$candidates->id}}/detailCandidate" class="btn btn-sm btn-primary" title="Detail"><i class="bi bi-eye"></i></a>
                                         <button class="btn btn-sm btn-warning" title="Edit" data-toggle="modal" data-target="#editData{{$candidates['id']}}"><i class="bi bi-pencil-square"></i></button>
-                                        <a href="{{$candidates->id}}/deleteCandidate" class="btn btn-sm btn-danger hapusData" title="Hapus"><i class="bi bi-trash"></i></a>
+                                        <a href="{{$candidates->id}}/deleteCandidate" class="btn btn-sm btn-danger hapusData" title="Hapus"><i class="bi bi-trash"></i></a> --}}
+                                        <a href="{{$candidates->id}}/detailCandidate" class="btn btn-success btn-sm" title="Review">
+                                            {{-- <i class="bi bi-eye"></i> --}}Review
+                                        </a>
                                     </td>
                                 </tr>
                             @endforeach

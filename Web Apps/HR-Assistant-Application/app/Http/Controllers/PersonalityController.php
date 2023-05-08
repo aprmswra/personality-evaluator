@@ -4,6 +4,10 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use App\Models\Candidate;
+use App\Models\Employee;
+use App\Models\User;
+
 use GuzzleHttp\Client;
 
 class PersonalityController extends Controller
@@ -20,7 +24,10 @@ class PersonalityController extends Controller
 
     public function personalityTest()
     {
-        return view('pages.personality.form');
+        $user = auth()->user();
+        $userCandidate = User::with('candidate')->find($user->id);
+
+        return view('pages.personality.form', compact(['userCandidate']));
     }
 
     /**
@@ -89,10 +96,22 @@ class PersonalityController extends Controller
         $finalNeuro = $NeuroValue/($neuroLength/10);
         $finalOpen = $OpenValue/($openLength/10);
 
-        $username = 'farrelium';
-        // $finalValue = [$finalExtra,$finalAgree,$finalConscient,$finalNeuro,$finalOpen];
+        $username = $request->username;
         $finalValue = $finalExtra . ',' . $finalAgree . ',' . $finalConscient . ',' . $finalNeuro . ',' . $finalOpen;
-        // dd($finalValue);
+
+        $userCandidate = Candidate::find($request->candidate_id);
+
+        // dd($userCandidate);
+
+        $userCandidate->update([
+            'test_score_a' => $finalAgree,
+            'test_score_c' => $finalConscient,
+            'test_score_e' => $finalExtra,
+            'test_score_n' => $finalNeuro,
+            'test_score_o' => $finalOpen,
+        ]);
+
+        // dd($userCandidate);
 
         $client = new Client([
             'base_uri' => 'http://localhost:5000', // Ganti dengan URL Flask API
@@ -110,7 +129,20 @@ class PersonalityController extends Controller
 
         $data = json_decode($data, true);
 
-        dd($data);
+        // dd($data);
+
+        $userCandidate->update([
+            'personality' => $data['label'],
+            'test_result_a' => $data['soft_class']['Agreeableness'],
+            'test_result_c' => $data['soft_class']['Conscientiousness'],
+            'test_result_e' => $data['soft_class']['Extraversion'],
+            'test_result_n' => $data['soft_class']['Neuroticism'],
+            'test_result_o' => $data['soft_class']['Openness'],
+        ]);
+
+        // dd($userCandidate);
+
+        return redirect('/');
     }
 
     public function summarizeCandidate()

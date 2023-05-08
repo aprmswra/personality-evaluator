@@ -64,13 +64,15 @@
                             <p class="text-center small">Enter your username & password to login</p>
                         </div>
 
-                        <form class="row g-3 needs-validation" novalidate>
+                        <form action="/postLogin" method="POST" class="row g-3 needs-validation" novalidate>
+
+                            @csrf
 
                             <div class="col-12">
-                            <label for="yourUsername" class="form-label">Username</label>
+                            <label for="yourUsername" class="form-label">E-mail</label>
                             <div class="input-group has-validation">
                                 <span class="input-group-text" id="inputGroupPrepend">@</span>
-                                <input type="text" name="username" class="form-control" id="yourUsername" required>
+                                <input type="text" name="email" class="form-control" id="yourUsername" required>
                                 <div class="invalid-feedback">Please enter your username.</div>
                             </div>
                             </div>

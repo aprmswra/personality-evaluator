@@ -24,4 +24,9 @@ class Employee extends Eloquent
         'no_hp',
         'position'
     ];
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }

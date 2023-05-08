@@ -67,14 +67,16 @@
             <li class="nav-item dropdown pe-3">
 
             <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
-                <img src="assets/img/profile-img.jpg" alt="Profile" class="rounded-circle">
-                <span class="d-none d-md-block dropdown-toggle ps-2">K. Anderson</span>
+                <img src="{{ asset('assets/img/user.png') }}" alt="Profile" class="rounded-circle">
+                <span class="d-none d-md-block dropdown-toggle ps-2">{{ auth()->user()->name }}</span>
             </a><!-- End Profile Iamge Icon -->
 
             <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
                 <li class="dropdown-header">
-                <h6>Kevin Anderson</h6>
-                <span>Human Resource</span>
+                <h6>{{ auth()->user()->name }}</h6>
+                @if (Auth::user()->role == 'admin')
+                <span>{{ $userEmployee['employee']->position }}</span>
+                @endif
                 </li>
                 <li>
                 <hr class="dropdown-divider">
@@ -92,7 +94,7 @@
                 </li>
 
                 <li>
-                <a class="dropdown-item d-flex align-items-center" href="#">
+                <a class="dropdown-item d-flex align-items-center" href="/logout">
                     <i class="bi bi-box-arrow-right"></i>
                     <span>Sign Out</span>
                 </a>
@@ -118,6 +120,7 @@
                 </a>
             </li><!-- End Dashboard Nav -->
 
+            @if (Auth::user()->role == 'admin')
             <li class="nav-item">
                 <a class="nav-link collapsed" data-bs-target="#components-nav" data-bs-toggle="collapse" href="#">
                     <i class="bi bi-people"></i><span>Employee</span><i class="bi bi-chevron-down ms-auto"></i>
@@ -130,7 +133,9 @@
                     </li>
                 </ul>
             </li><!-- End Components Nav -->
+            @endif
 
+            @if (Auth::user()->role == 'admin')
             <li class="nav-item">
                 <a class="nav-link collapsed" data-bs-target="#forms-nav" data-bs-toggle="collapse" href="#">
                     <i class="bi bi-person-lines-fill"></i><span>Candidate</span><i class="bi bi-chevron-down ms-auto"></i>
@@ -143,7 +148,9 @@
                     </li>
                 </ul>
             </li><!-- End Forms Nav -->
+            @endif
 
+            @if (Auth::user()->role == 'user')
             <li class="nav-item">
                 <a class="nav-link collapsed" data-bs-target="#tables-nav" data-bs-toggle="collapse" href="#">
                     <i class="bi bi-journal-text"></i><span>Personality</span><i class="bi bi-chevron-down ms-auto"></i>
@@ -161,6 +168,7 @@
                     </li>
                 </ul>
             </li><!-- End Tables Nav -->
+            @endif
 
         </ul>
 

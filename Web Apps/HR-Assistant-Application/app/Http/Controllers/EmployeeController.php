@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use App\Models\Candidate;
 use App\Models\Employee;
+use App\Models\User;
 
 class EmployeeController extends Controller
 {
@@ -16,10 +18,12 @@ class EmployeeController extends Controller
     public function index()
     {
         $data['employee'] = Employee::get();
+        $user = auth()->user();
+        $userEmployee = User::with('employee')->find($user->id);
         
         // dd($data);
 
-        return view('pages.employee.index', $data);
+        return view('pages.employee.index', $data, compact(['userEmployee']));
     }
 
     /**

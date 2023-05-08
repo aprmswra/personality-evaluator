@@ -15,7 +15,7 @@ return [
     |
     */
 
-    'default' => env('DB_CONNECTION', 'mysql'),
+    'default' => env('DB_CONNECTION', 'mongodb'),
 
     /*
     |--------------------------------------------------------------------------
@@ -102,6 +102,7 @@ return [
             'password' => env('DB_PASSWORD', 'secret'),
             'options' => [
                 'appname' => 'homestead',
+                // 'database' => env('DB_AUTHENTICATION_DATABASE', 'admin'),
             ],
         ],
 

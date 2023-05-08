@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use GuzzleHttp\Client;
 
 use App\Models\Candidate;
+use App\Models\Employee;
+use App\Models\User;
 
 class CandidateController extends Controller
 {
@@ -18,10 +20,12 @@ class CandidateController extends Controller
     public function index()
     {
         $data['candidate'] = Candidate::get();
+        $user = auth()->user();
+        $userEmployee = User::with('employee')->find($user->id);
         
         // dd($data);
 
-        return view('pages.candidate.index', $data);
+        return view('pages.candidate.index', $data, compact(['userEmployee']));
     }
 
     /**
@@ -67,6 +71,10 @@ class CandidateController extends Controller
         $data = $response->getBody()->getContents();
 
         $data = json_decode($data, true);
+
+        $userCandidate = User::find($request->user_id);
+
+        // dd($userCandidate);
         
         $candidate = Candidate::create([
             'first_name' => $request->first_name,
@@ -76,13 +84,24 @@ class CandidateController extends Controller
             'date_of_birth' => $request->date_of_birth,
             'no_hp' => $request->no_hp,
             'position' => $request->position,
-            'tell_me_yourself' => $data['summary']
-            // 'test_score' => $test_score,
-            // 'test_result' => $test_result,
-            // 'personality' => $personality
+            'status' => 'review',
+            'tell_me_yourself' => $data['summary'],
+            'test_score_a' => '-',
+            'test_score_c' => '-',
+            'test_score_e' => '-',
+            'test_score_n' => '-',
+            'test_score_o' => '-',
+            'test_result_a' => '-',
+            'test_result_c' => '-',
+            'test_result_e' => '-',
+            'test_result_n' => '-',
+            'test_result_o' => '-',
+            'personality' => '-'
         ]);
 
-        // dd($candidate);
+        $userCandidate->candidate()->save($candidate);
+
+        // dd($userCandidate['candidate']->position);
 
         return redirect('/profileCandidate')->with('success', 'Data has been added.');
     }
@@ -95,7 +114,12 @@ class CandidateController extends Controller
      */
     public function show($id)
     {
-        //
+        // Find Data by Id
+        $candidate = Candidate::find($id);
+        $user = auth()->user();
+        $userEmployee = User::with('employee')->find($user->id);
+
+        return view('pages.candidate.detailCandidate', compact('candidate','userEmployee'));
     }
 
     /**

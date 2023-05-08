@@ -28,32 +28,7 @@
                         
                         @csrf
 
-                        {{-- <div>
-                            <input id="option" type="radio" name="field" value="option">
-                            <label for="option"><span><span></span></span>Value</label>
-                        </div> --}}
-
-                        {{-- <div id="debt-amount-slider">
-                            <input type="radio" name="debt-amount" id="1" value="1" required>
-                            <label for="1" data-debt-amount="< $10k">tes 1</label>
-                            <input type="radio" name="debt-amount" id="2" value="2" required>
-                            <label for="2" data-debt-amount="$10k-25k">tes 2</label>
-                            <input type="radio" name="debt-amount" id="3" value="3" required>
-                            <label for="3" data-debt-amount="$25k-50k">tes 3</label>
-                            <input type="radio" name="debt-amount" id="4" value="4" required>
-                            <label for="4" data-debt-amount="$50k-100k">tes 4</label>
-                            <input type="radio" name="debt-amount" id="5" value="5" required>tes 5
-                            <label for="5" data-debt-amount="$100k+">tes 5</label>
-                            <div id="debt-amount-pos"></div>
-                        </div> --}}
-
-                        {{-- <input class="medium" type="radio" name="q" value="1"/>
-                        <input class="medium" type="radio" name="q" value="2"/>
-                        <input class="medium" type="radio" name="q" value="3"/>
-                        <input class="medium" type="radio" name="q" value="4"/>
-                        <input class="medium" type="radio" name="q" value="5"/> --}}
-
-
+                        <input type="hidden" class="form-control" id="candidate_id" name="candidate_id" value="{{ $userCandidate['candidate']->id }}">
                         <div id="section1">
                             {{-- QUESTION 1 --}}
                             <div class="mb-3">
@@ -1327,6 +1302,14 @@
                                         <input class="form-check-input" type="radio" name="q44" id="q44" value="5">
                                         <label class="form-check-label" for="q44">5</label>
                                     </div>
+                                </div>
+                            </div>
+
+                            {{-- Username Twitter --}}
+                            <div class="mb-3">
+                                <label for="inputText" class="col-sm-12 col-form-label">Silahkan masukkan username Twitter Anda.</label>
+                                <div class="col-sm-5">
+                                    <input id="username" name="username" type="text" class="form-control">
                                 </div>
                             </div>
 
