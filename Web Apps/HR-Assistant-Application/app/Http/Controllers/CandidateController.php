@@ -128,9 +128,15 @@ class CandidateController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function rejectCandidate($id)
     {
-        //
+        $candidate = Candidate::find($id);
+
+        $candidate->update([
+            'status' => 'rejected'
+        ]);
+
+        return redirect('/candidate');
     }
 
     /**
@@ -140,9 +146,15 @@ class CandidateController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function acceptCandidate($id)
     {
-        //
+        $candidate = Candidate::find($id);
+
+        $candidate->update([
+            'status' => 'accepted'
+        ]);
+
+        return redirect('/candidate');
     }
 
     /**

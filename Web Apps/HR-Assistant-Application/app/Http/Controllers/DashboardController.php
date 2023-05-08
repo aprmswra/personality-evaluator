@@ -28,7 +28,22 @@ class DashboardController extends Controller
                 'userEmployee'
             ));
         } else {
-            return view('dashboard');
+            if (Auth::user()->candidate) {
+                $user = Auth::user()->candidate;
+                $userId = $user->id;
+
+                // dd($userId);
+
+                $application = Candidate::where('_id',$userId)->count();
+
+                // dd($application);
+                
+                return view('dashboard', compact(['application']));
+            } else {
+                $application = '0';
+
+                return view('dashboard', compact(['application']));
+            }
         }
     }
 }

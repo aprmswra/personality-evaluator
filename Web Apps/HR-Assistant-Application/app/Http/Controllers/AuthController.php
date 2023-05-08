@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
 
+use App\Models\User;
+
 class AuthController extends Controller
 {
     public function login(Request $request)
@@ -20,29 +22,32 @@ class AuthController extends Controller
         }
     }
 
-    // public function login2(Request $request)
-    // {
-    //     $credentials = $request->only('email', 'password');
-
-    //     if (Auth::attempt($credentials)) {
-    //         return redirect()->intended('/');
-    //     }
-
-    //     return redirect()->back()->withErrors('Invalid credentials');
-    // }
-
     public function register(Request $request)
     {
+        $request->validate([
+            'email' => 'required|string',
+            'username' => 'required|string',
+            'password' => 'required'
+        ], [
+            'email.required' => 'E-mail must be filled',
+            'email.string' => 'E-mail must be string',
+            'username.required' => 'Username must be filled',
+            'username.string' => 'Username must be string',
+            'password.required' => 'Password must be filled'
+        ]);
+
         $user = new User;
-        $user->name = $request->name;
+        $user->name = $request->username;
         $user->email = $request->email;
-        $user->password = Hash::make($request->password);
+        $user->password = bcrypt($request->password);
+        $user->role = 'user';
         $user->remember_token = Str::random(60);
         $user->save();
 
-        Auth::login($user);
+        // Auth::login($user);
 
-        return redirect()->intended('dashboard');
+        // return redirect()->intended('/login');
+        return redirect('/login');
     }
 
     public function logout()

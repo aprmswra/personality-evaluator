@@ -35,11 +35,14 @@ Route::get('/logout', [AuthController::class, 'logout']);
 Route::get('/register', function () {
     return view('pages.login.register');
 });
+Route::post('/registerAccount', [AuthController::class, 'register']);
 
 // Candidate
 Route::get('/candidate', [CandidateController::class, 'index'])->middleware('auth');
 Route::post('/addCandidate', [CandidateController::class, 'store'])->middleware('auth');
 Route::get('{id}/detailCandidate', [CandidateController::class, 'show'])->middleware('auth');
+Route::get('/rejectRegister/{id}', [CandidateController::class, 'rejectCandidate'])->middleware('auth');
+Route::get('/acceptCandidate/{id}', [CandidateController::class, 'acceptCandidate'])->middleware('auth');
 
 // Employee
 Route::get('/employee', [EmployeeController::class, 'index'])->middleware('auth');
