@@ -51,6 +51,7 @@ Route::post('/addEmployee', [EmployeeController::class, 'store'])->middleware('a
 
 // Personality
 Route::get('/profileCandidate', [PersonalityController::class, 'profileCandidate'])->middleware('auth');
+Route::get('/coverTest', [PersonalityController::class, 'coverTest'])->middleware('auth');
 Route::get('/personalityTest', [PersonalityController::class, 'personalityTest'])->middleware('auth');
 Route::post('/predictPersonality', [PersonalityController::class, 'predictPersonalityTest'])->middleware('auth');
 Route::get('/summarizeCandidate', [PersonalityController::class, 'summarizeCandidate'])->middleware('auth');

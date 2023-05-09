@@ -1,16 +1,16 @@
 @extends('layouts.layout')
 
-@section('title', 'Test Personality')
+@section('title', 'Personality Test')
 
 @section('content')
 
 <div class="pagetitle">
-    <h1>Test Personality</h1>
+    <h1>Personality Test</h1>
     <nav>
         <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="index.html">Home</a></li>
             <li class="breadcrumb-item">Personality</li>
-            <li class="breadcrumb-item active">Test Personality</li>
+            <li class="breadcrumb-item active">Personality Test</li>
         </ol>
     </nav>
 </div><!-- End Page Title -->
@@ -21,7 +21,7 @@
 
             <div class="card">
                 <div class="card-body">
-                    <h5 class="card-title">Test Personality</h5>
+                    <h5 class="card-title">Personality Test</h5>
 
                     <!-- General Form Elements -->
                     <form action="predictPersonality" method="POST" class="needs-validation" novalidate>
@@ -29,8 +29,20 @@
                         @csrf
 
                         <input type="hidden" class="form-control" id="candidate_id" name="candidate_id" value="{{ $userCandidate['candidate']->id }}">
+                        {{-- <div id="timer">00:00:00</div> --}}
+                        <span id="timer" style="font-size: 24px; position: absolute; top: 10px; right: 10px;"></span>
                         <div id="section1">
                             {{-- QUESTION 1 --}}
+                            <div class="d-flex justify-content-center">
+                                <ul class="list-group list-group-horizontal border-0 mx-auto">
+                                    <li class="list-group-item border-0 fw-bold">1 (Sangat Tidak Setuju)</li>
+                                    <li class="list-group-item border-0 fw-bold">2 (Tidak Setuju)</li>
+                                    <li class="list-group-item border-0 fw-bold">3 (Netral)</li>
+                                    <li class="list-group-item border-0 fw-bold">4 (Setuju)</li>
+                                    <li class="list-group-item border-0 fw-bold">5 (Sangat Setuju)</li>
+                                </ul>
+                            </div>
+                            <br>
                             <div class="mb-3">
                                 <label for="inputText" class="col-sm-12 col-form-label">1. Saya melihat diri sendiri sebagai orang yang banyak berbicara.</label>
                                 <div class="col-sm-10">
@@ -176,6 +188,16 @@
 
                         <div id="section2">
                             {{-- QUESTION 6 --}}
+                            <div class="d-flex justify-content-center">
+                                <ul class="list-group list-group-horizontal border-0 mx-auto">
+                                    <li class="list-group-item border-0 fw-bold">1 (Sangat Tidak Setuju)</li>
+                                    <li class="list-group-item border-0 fw-bold">2 (Tidak Setuju)</li>
+                                    <li class="list-group-item border-0 fw-bold">3 (Netral)</li>
+                                    <li class="list-group-item border-0 fw-bold">4 (Setuju)</li>
+                                    <li class="list-group-item border-0 fw-bold">5 (Sangat Setuju)</li>
+                                </ul>
+                            </div>
+                            <br>
                             <div class="mb-3">
                                 <label for="inputText" class="col-sm-12 col-form-label">6. Saya melihat diri saya sebagai orang yang pendiam.</label>
                                 <div class="col-sm-10">
@@ -322,6 +344,16 @@
 
                         <div id="section3">
                             {{-- QUESTION 11 --}}
+                            <div class="d-flex justify-content-center">
+                                <ul class="list-group list-group-horizontal border-0 mx-auto">
+                                    <li class="list-group-item border-0 fw-bold">1 (Sangat Tidak Setuju)</li>
+                                    <li class="list-group-item border-0 fw-bold">2 (Tidak Setuju)</li>
+                                    <li class="list-group-item border-0 fw-bold">3 (Netral)</li>
+                                    <li class="list-group-item border-0 fw-bold">4 (Setuju)</li>
+                                    <li class="list-group-item border-0 fw-bold">5 (Sangat Setuju)</li>
+                                </ul>
+                            </div>
+                            <br>
                             <div class="mb-3">
                                 <label for="inputText" class="col-sm-12 col-form-label">11. Saya orang yang penuh dengan semangat.</label>
                                 <div class="col-sm-10">
@@ -468,6 +500,16 @@
 
                         <div id="section4">
                             {{-- QUESTION 16 --}}
+                            <div class="d-flex justify-content-center">
+                                <ul class="list-group list-group-horizontal border-0 mx-auto">
+                                    <li class="list-group-item border-0 fw-bold">1 (Sangat Tidak Setuju)</li>
+                                    <li class="list-group-item border-0 fw-bold">2 (Tidak Setuju)</li>
+                                    <li class="list-group-item border-0 fw-bold">3 (Netral)</li>
+                                    <li class="list-group-item border-0 fw-bold">4 (Setuju)</li>
+                                    <li class="list-group-item border-0 fw-bold">5 (Sangat Setuju)</li>
+                                </ul>
+                            </div>
+                            <br>
                             <div class="mb-3">
                                 <label for="inputText" class="col-sm-12 col-form-label">16. Saya menunjukkan banyak antusiasme pada suatu hal.</label>
                                 <div class="col-sm-10">
@@ -614,6 +656,16 @@
 
                         <div id="section5">
                             {{-- QUESTION 21 --}}
+                            <div class="d-flex justify-content-center">
+                                <ul class="list-group list-group-horizontal border-0 mx-auto">
+                                    <li class="list-group-item border-0 fw-bold">1 (Sangat Tidak Setuju)</li>
+                                    <li class="list-group-item border-0 fw-bold">2 (Tidak Setuju)</li>
+                                    <li class="list-group-item border-0 fw-bold">3 (Netral)</li>
+                                    <li class="list-group-item border-0 fw-bold">4 (Setuju)</li>
+                                    <li class="list-group-item border-0 fw-bold">5 (Sangat Setuju)</li>
+                                </ul>
+                            </div>
+                            <br>
                             <div class="mb-3">
                                 <label for="inputText" class="col-sm-12 col-form-label">21. Saya orang yang tenang dan pendiam.</label>
                                 <div class="col-sm-10">
@@ -760,6 +812,16 @@
 
                         <div id="section6">
                             {{-- QUESTION 26 --}}
+                            <div class="d-flex justify-content-center">
+                                <ul class="list-group list-group-horizontal border-0 mx-auto">
+                                    <li class="list-group-item border-0 fw-bold">1 (Sangat Tidak Setuju)</li>
+                                    <li class="list-group-item border-0 fw-bold">2 (Tidak Setuju)</li>
+                                    <li class="list-group-item border-0 fw-bold">3 (Netral)</li>
+                                    <li class="list-group-item border-0 fw-bold">4 (Setuju)</li>
+                                    <li class="list-group-item border-0 fw-bold">5 (Sangat Setuju)</li>
+                                </ul>
+                            </div>
+                            <br>
                             <div class="mb-3">
                                 <label for="inputText" class="col-sm-12 col-form-label">26. Saya memiliki kepribadian yang asertif atau tegas.</label>
                                 <div class="col-sm-10">
@@ -906,6 +968,16 @@
 
                         <div id="section7">
                             {{-- QUESTION 31 --}}
+                            <div class="d-flex justify-content-center">
+                                <ul class="list-group list-group-horizontal border-0 mx-auto">
+                                    <li class="list-group-item border-0 fw-bold">1 (Sangat Tidak Setuju)</li>
+                                    <li class="list-group-item border-0 fw-bold">2 (Tidak Setuju)</li>
+                                    <li class="list-group-item border-0 fw-bold">3 (Netral)</li>
+                                    <li class="list-group-item border-0 fw-bold">4 (Setuju)</li>
+                                    <li class="list-group-item border-0 fw-bold">5 (Sangat Setuju)</li>
+                                </ul>
+                            </div>
+                            <br>
                             <div class="mb-3">
                                 <label for="inputText" class="col-sm-12 col-form-label">31. Saya pemalu, sehingga kadang tidak bisa bertingkah biasa didepan umum.</label>
                                 <div class="col-sm-10">
@@ -1052,6 +1124,16 @@
 
                         <div id="section8">
                             {{-- QUESTION 36 --}}
+                            <div class="d-flex justify-content-center">
+                                <ul class="list-group list-group-horizontal border-0 mx-auto">
+                                    <li class="list-group-item border-0 fw-bold">1 (Sangat Tidak Setuju)</li>
+                                    <li class="list-group-item border-0 fw-bold">2 (Tidak Setuju)</li>
+                                    <li class="list-group-item border-0 fw-bold">3 (Netral)</li>
+                                    <li class="list-group-item border-0 fw-bold">4 (Setuju)</li>
+                                    <li class="list-group-item border-0 fw-bold">5 (Sangat Setuju)</li>
+                                </ul>
+                            </div>
+                            <br>
                             <div class="mb-3">
                                 <label for="inputText" class="col-sm-12 col-form-label">36. Saya orang yang mudah bergaul dan senang bergaul.</label>
                                 <div class="col-sm-10">
@@ -1198,6 +1280,16 @@
 
                         <div id="section9">
                             {{-- QUESTION 41 --}}
+                            <div class="d-flex justify-content-center">
+                                <ul class="list-group list-group-horizontal border-0 mx-auto">
+                                    <li class="list-group-item border-0 fw-bold">1 (Sangat Tidak Setuju)</li>
+                                    <li class="list-group-item border-0 fw-bold">2 (Tidak Setuju)</li>
+                                    <li class="list-group-item border-0 fw-bold">3 (Netral)</li>
+                                    <li class="list-group-item border-0 fw-bold">4 (Setuju)</li>
+                                    <li class="list-group-item border-0 fw-bold">5 (Sangat Setuju)</li>
+                                </ul>
+                            </div>
+                            <br>
                             <div class="mb-3">
                                 <label for="inputText" class="col-sm-12 col-form-label">41. Saya hanya memiliki sedikit minat dalam bidang artistik.</label>
                                 <div class="col-sm-10">
@@ -1589,3 +1681,28 @@
         })
     </script>
 @endpush
+
+<script>
+    function startTimer(duration, display) {
+        var timer = duration, minutes, seconds;
+        setInterval(function () {
+            minutes = parseInt(timer / 60, 10);
+            seconds = parseInt(timer % 60, 10);
+
+            minutes = minutes < 10 ? "0" + minutes : minutes;
+            seconds = seconds < 10 ? "0" + seconds : seconds;
+
+            display.textContent = minutes + ":" + seconds;
+
+            if (--timer < 0) {
+                timer = duration;
+            }
+        }, 1000);
+    }
+
+    window.onload = function () {
+        var duration = 60 * 15; // durasi timer dalam detik (25 menit)
+        var display = document.querySelector('#timer');
+        startTimer(duration, display);
+    };
+</script>

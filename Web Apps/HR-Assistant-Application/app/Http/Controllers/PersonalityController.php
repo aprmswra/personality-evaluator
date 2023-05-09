@@ -30,6 +30,14 @@ class PersonalityController extends Controller
         return view('pages.personality.form', compact(['userCandidate']));
     }
 
+    public function coverTest()
+    {
+        $user = auth()->user();
+        $userCandidate = User::with('candidate')->find($user->id);
+
+        return view('pages.personality.cover', compact(['userCandidate']));
+    }
+
     /**
      * Show the form for creating a new resource.
      *

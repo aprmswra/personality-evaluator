@@ -65,7 +65,7 @@
                                 </div>
                                 <p class=" col-sm-3 font-weight-bold">Summary Candidate</p>
                                 <div class="col-sm-9">
-                                    <p>: {{$candidate->tell_me_yourself}}</p>
+                                    <p style="text-align: justify">: {{$candidate->tell_me_yourself}}</p>
                                 </div>
                                 <p class=" col-sm-3 font-weight-bold">File CV</p>
                                 <div class="col-sm-9">
@@ -83,9 +83,25 @@
                             <div class="form-group row">
                                 <div class="container-fluid">
                                     <div class="form-group row">
-                                        <p class=" col-sm-3">Personality</p>
+                                        <p class=" col-sm-3">Dominant Personality</p>
                                         <div class="col-sm-9">
                                             <p>: {{$candidate->personality}}</p>
+                                        </div>
+                                        <p class=" col-sm-3">Description</p>
+                                        <div class="col-sm-9">
+                                            <p style="text-align: justify">: 
+                                                @if ($candidate->personality == 'Agreeableness')
+                                                    Orang yang memiliki tingkat kesetujuan yang tinggi cenderung menjadi orang yang bersahabat, mudah bergaul, dan dapat dipercaya. Mereka cenderung memiliki empati yang tinggi terhadap orang lain dan lebih fokus pada hubungan interpersonal yang positif. Orang yang memiliki tingkat kesetujuan yang rendah cenderung lebih kritis dan skeptis terhadap orang lain, dan lebih fokus pada kepentingan pribadi.
+                                                @elseif ($candidate->personality == 'Conscientiousness')
+                                                    Orang yang memiliki tingkat konsientius yang tinggi cenderung menjadi orang yang dapat dipercaya, pekerja keras, dan bertanggung jawab. Mereka cenderung memiliki tujuan hidup yang jelas dan berusaha untuk mencapainya dengan cara yang terstruktur dan terorganisir. Orang yang memiliki tingkat konsientius yang rendah cenderung lebih santai, kurang teratur, dan kurang fokus pada tujuan hidup jangka panjang.
+                                                @elseif ($candidate->personality == 'Extraversion')
+                                                    Orang yang memiliki tingkat ekstroversi yang tinggi cenderung menjadi orang yang energik, antusias, dan bersosialisasi dengan mudah. Mereka cenderung menjadi pusat perhatian dalam sebuah kelompok dan lebih senang berada di lingkungan yang ramai. Orang yang memiliki tingkat ekstroversi yang rendah cenderung lebih introvert, pendiam, dan lebih senang berada di lingkungan yang tenang dan damai.
+                                                @elseif ($candidate->personality == 'Neuroticism')
+                                                    Orang yang memiliki tingkat neurotisme yang tinggi cenderung lebih cemas, rentan, dan mudah merasa tertekan. Mereka cenderung lebih sensitif terhadap perubahan dalam hidup mereka dan lebih rentan terhadap stres dan kecemasan. Orang yang memiliki tingkat neurotisme yang rendah cenderung lebih stabil emosinya dan lebih tenang dalam menghadapi tekanan dan tantangan hidup.
+                                                @elseif ($candidate->personality == 'Openness')
+                                                    Orang yang memiliki tingkat keterbukaan yang tinggi cenderung memiliki imajinasi yang kuat, kreatif, dan seringkali menjadi seniman atau penulis. Mereka cenderung memiliki minat yang beragam dan lebih mudah menerima hal baru dan berbeda. Orang yang memiliki tingkat keterbukaan yang rendah cenderung lebih tradisional, praktis, dan berorientasi pada keamanan.
+                                                @endif
+                                            </p>
                                         </div>
                                         <p class=" col-sm-3">Score</p>
                                         <div class="col-sm-9">
@@ -96,6 +112,7 @@
                                     <div class="container-fluid">
                                         <h6 class="card-text font-weight-bold">Test Scores</h6>
                                         <div class="row">
+                                            <div id="pieChartContainer"></div>
                                             <div class="table-responsive">
                                                 <table class="table table-bordered" style="text-align: center">
                                                     <thead>

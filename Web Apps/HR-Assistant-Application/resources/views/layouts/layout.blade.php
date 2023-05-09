@@ -9,6 +9,9 @@
 
     <title>@yield('title') | HR Assistant</title>
 
+    <!-- Highchart JS -->
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+
     <!-- Favicons -->
     <link href="{{ asset('assets/img/favicon.png') }}" rel="icon">
     <link href="{{ asset('assets/img/apple-touch-icon.png') }}" rel="apple-touch-icon">
@@ -162,7 +165,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="/personalityTest">
+                        <a href="/coverTest">
                         <i class="bi bi-circle"></i><span>Test Personality</span>
                         </a>
                     </li>
