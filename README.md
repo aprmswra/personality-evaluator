@@ -51,7 +51,7 @@ The research suggests that future work could focus on integrating additional fea
 ## References
 
 For detailed information, please refer to the original research paper and the references cited within.
-[(https://ieeexplore.ieee.org/abstract/document/10346812)](url)
+[https://ieeexplore.ieee.org/abstract/document/10346812](url)
 
 ---
 
